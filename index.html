@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADSO 3314566</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Noto+Sans+JP:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
         body {
             background: linear-gradient(rgb(0, 0, 0), rgb(95, 15, 148));
             color: rgb(255, 255, 255);
-            font-family: sans-serif;
+            font-family: "Noto Sans Japanese";
             display: flex;
             justify-content: center;
             align-items: center;
@@ -33,15 +33,69 @@
                     font-size: 1.4rem;
                 }
             }
+            menu {
+                display: flex;
+                flex-direction: column;
+                gap: 0.7rem;
+                a:link, a:visited {
+                    background-color: darkgray;
+                    color: black;
+                    border-radius: 10rem;
+                    display: flex;
+                    text-decoration: none;
+                    span {
+                        background-color: rgb(54, 8, 97);
+                        color: floralwhite;
+                        border-radius: 50%;
+                        font-size: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 80px;
+                        width: 80px;
+                    }
+                    h4 {
+                        margin: 0;
+                    }
+                }
+            }
         }
-        
     </style>
 </head>
 <body>
     <main>
         <h1>ADSO 3314566</h1>
-        <img src="./malufo.jpg" alt="">      
-        <h4>Juan Jose Zuluaga 🥸   </h4>
+        <img src="soyyo.png" alt="">
+        <h4>Juan Jose Zuluaga</h4>
+        <menu>
+            <a href="01-emmet/">
+                <span>01</span>
+                <aside>
+                    <h4>Emmet</h4>
+                    <small>Work Flow - Markup & Stylling</small>
+                </aside>
+            </a>
+            <a href="02-html/">
+                <span>02</span>
+                <aside>
+                    <h4>Html</h4>
+                    <small>Structure - Hypertext Markup Language</small>
+                </aside>
+            <a href="03-css/">
+                <span>03</span>
+                <aside>
+                    <h4>Css</h4>
+                    <small>Look & Fell - Cascading Style Sheets</small>
+                </aside>
+            </a>
+            <a href="04-js/">
+                <span>04</span>
+                <aside>
+                    <h4>Javascript</h4>
+                    <small>Behavior - Programing Language</small>
+                </aside>
+            </a>
+        </menu>
     </main>
 </body>
 </html>
