@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Oswald:wght@300..700&family=Roboto+Slab:wght@300..900&display=swap');
+
+:root {
+    --morado: #8A2BE2;
+    --morado-oscuro: #5A1BB0;
+    --gris-oscuro: #0A0A14;
+    --gris-medio: #1A1A2E;
+    --gris-claro: #B0B0C3;
+    --blanco: #FFFFFF;
+}
+
+body {
+background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect fill='none' stroke-width='54.3' stroke-opacity='0.34' id='a' x='-400' y='-300' width='800' height='600'/%3E%3C/defs%3E%3Cg style='transform-origin:center'%3E%3Cg transform='rotate(131.4 0 0)' style='transform-origin:center'%3E%3Cg transform='rotate(-160 0 0)' style='transform-origin:center'%3E%3Cg transform='translate(1000 750)'%3E%3Cuse stroke='%23000' href='%23a' transform='rotate(10 0 0) scale(1.1)'/%3E%3Cuse stroke='%230b0111' href='%23a' transform='rotate(20 0 0) scale(1.2)'/%3E%3Cuse stroke='%23150122' href='%23a' transform='rotate(30 0 0) scale(1.3)'/%3E%3Cuse stroke='%23200233' href='%23a' transform='rotate(40 0 0) scale(1.4)'/%3E%3Cuse stroke='%232a0344' href='%23a' transform='rotate(50 0 0) scale(1.5)'/%3E%3Cuse stroke='%23350355' href='%23a' transform='rotate(60 0 0) scale(1.6)'/%3E%3Cuse stroke='%23400466' href='%23a' transform='rotate(70 0 0) scale(1.7)'/%3E%3Cuse stroke='%234a0577' href='%23a' transform='rotate(80 0 0) scale(1.8)'/%3E%3Cuse stroke='%23550588' href='%23a' transform='rotate(90 0 0) scale(1.9)'/%3E%3Cuse stroke='%235f0699' href='%23a' transform='rotate(100 0 0) scale(2)'/%3E%3Cuse stroke='%236a07aa' href='%23a' transform='rotate(110 0 0) scale(2.1)'/%3E%3Cuse stroke='%237507bb' href='%23a' transform='rotate(120 0 0) scale(2.2)'/%3E%3Cuse stroke='%237f08cc' href='%23a' transform='rotate(130 0 0) scale(2.3)'/%3E%3Cuse stroke='%238a09dd' href='%23a' transform='rotate(140 0 0) scale(2.4)'/%3E%3Cuse stroke='%239409ee' href='%23a' transform='rotate(150 0 0) scale(2.5)'/%3E%3Cuse stroke='%239F0AFF' href='%23a' transform='rotate(160 0 0) scale(2.6)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+
+    color: var(--blanco);
+    font-family: "Roboto Slab", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+}
+
+/* BOTÓN HOME */
+.btn-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--morado);
+    color: var(--blanco);
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    border: 2px solid var(--morado);
+    transition: all 0.3s ease;
+    font-family: "Oswald", sans-serif;
+}
+
+.btn-home:hover {
+    background-color: var(--morado-oscuro);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+}
+
+
+main h1 {
+    color: var(--morado);
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* IMAGEN */
+main img {
+    border: 4px solid var(--morado);
+    border-radius: 50%;
+    height: 240px;
+    width: 240px;
+    display: block;
+    margin: 1rem auto;
+    object-fit: cover;
+}
+
+/* SUBTEXTO */
+main h4 {
+    color: var(--gris-claro);
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: "Oswald", sans-serif;
+}
+
+/* HEADER */
+header h1 {
+    font-size: 2rem;
+    color: var(--blanco);
+    font-family: "Bungee", sans-serif;
+}
+
+header h2 {
+    font-size: 1rem;
+    color: var(--gris-claro);
+    font-family: "Oswald", sans-serif;
+}
+
+header h1,
+header h2 {
+    text-align: center;
+}
+
+/* SECCIÓN */
+section {
+    background-color: rgba(26, 26, 46, 0.85);
+    border-radius: 12px;
+    min-width: 380px;
+    padding: 1rem;
+    backdrop-filter: blur(12px);
+}
+
+/* MENÚ */
+menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+menu a {
+    background-color: var(--gris-medio);
+    color: var(--blanco);
+    border-radius: 10rem;
+    padding: 0.5rem;
+    display: flex;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+menu a:hover {
+    transform: scale(1.05) translateX(10px);
+}
+
+/* ICONO */
+menu a span {
+    background-color: var(--morado);
+    color: var(--blanco);
+    border-radius: 50%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    width: 70px;
+}
+
+/* TEXTO */
+menu a h4 {
+    margin: 0;
+    margin-left: 10px;
+    width: 200px;
+    font-family: "Oswald", sans-serif;
+}
+
+menu a small {
+    display: block;
+    font-size: 0.7rem;
+    margin-left: 10px;
+    color: var(--gris-claro);
+}

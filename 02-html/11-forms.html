@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+
+    <!-- Fuente estilo -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background: black;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* BOTÓN ATRÁS */
+        .boton-atras {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #a6a631;
+            border: 3px solid white;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+        }
+
+        /* TÍTULO */
+        .titulo {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .titulo h1 {
+            background: gray;
+            display: inline-block;
+            padding: 10px 20px;
+            font-family: 'Press Start 2P', cursive;
+            color: yellow;
+        }
+
+        .titulo p {
+            color: green;
+            font-weight: bold;
+        }
+
+        /* FORMULARIO */
+        .formulario {
+            background: rgba(255,255,255,0.2);
+            width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔙 BOTÓN -->
+<button class="boton-atras" onclick="window.history.back()">←</button>
+
+<div class="titulo">
+    <h1>11-FORMS</h1>
+    <p>CREATES INTERACTIVE FORMS FOR USER INPUT.</p>
+</div>
+
+<div class="formulario">
+    <h3>FORMULARIO DE REGISTRO</h3>
+
+    <form>
+
+        <!-- NOMBRE -->
+        <label>Nombre:</label>
+        <input 
+            type="text"
+            name="nombre"
+            placeholder="Ingresa tu nombre"
+            maxlength="30"
+            required
+        >
+
+        <!-- APELLIDOS -->
+       <label for="edad">Edad:</label><br>
+        <input type="number" id="edad" name="edad" min="1" max="100" step="1"><br><br
+        >
+
+        <!-- APELLIDOS -->
+        <label>Apellidos:</label>
+        <input 
+            type="text"
+            name="apellidos"
+            placeholder="Ingresa tus apellidos"
+            maxlength="50"
+            required
+        >
+
+        <!-- CORREO -->
+        <label>Correo:</label>
+        <input 
+            type="email"
+            name="correo"
+            placeholder="ejemplo@gmail.com"
+            required
+        >
+
+        <!-- CONTRASEÑA -->
+        <label>Contraseña:</label>
+        <input 
+            type="password"
+            name="password"
+            placeholder="Mínimo 6 caracteres"
+            minlength="6"
+            required
+        >
+
+        <!-- BOTÓN ENVIAR -->
+        <button type="submit">Enviar</button>
+
+    </form>
+</div>
+
+</body>
+</html>

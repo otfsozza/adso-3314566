@@ -1,0 +1,83 @@
+
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+
+
+ 
+:root {
+    --morado: #6C5CE7;
+    --morado-oscuro: #4B3FCF;
+    --gris-oscuro: #0F0F1A;
+    --gris-medio: #1E1E2F;
+    --gris-claro: #A0A0B5;
+    --blanco: #FFFFFF;
+}
+
+h1 {
+    color: var(--blanco);
+}
+
+h4 {
+    color: #C7BFFF; 
+}
+
+body {
+background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+a {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    border: 2px solid var(--morado);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    opacity: .7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.cuadro {
+    background: var(--gris-medio);
+    padding: 25px;
+    border-radius: 15px;
+    width: 435px;
+    margin: 30px auto;
+    color: var(--blanco);
+    border: 2px solid var(--morado);
+    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5),
+                0 0 20px rgba(108, 92, 231, 0.3);
+    font-family: "Inter", sans-serif;
+}
+
+.cuadro xmp {
+    background-color: #111;
+    border: 1px solid var(--morado);
+    padding: 8px;
+    border-radius: 10px;
+    color: #C7BFFF;
+    display: block;
+}
+
+.cuadro h2 {
+    border-bottom: 2px solid var(--morado);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    color: var(--blanco);
+}
+
+main {
+    text-align: center;
+}
+
+main .cuadro {
+    text-align: left;
+}
