@@ -19,4 +19,4 @@
 
 [ADSO Files DRIVE](https://tinyurl.com/wnkk334u)
 
-[VERCEL URL](https://adso3314566-pink.vercel.app/)
+[VERCEL URL](https://adso-3314566.vercel.app/index.html)
