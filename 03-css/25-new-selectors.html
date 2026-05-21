@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25-New selectors</title>
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <style>
+        /* Estilos base - TODOS LOS TEXTOS EN BLANCO */
+        body.css {
+            background: radial-gradient(circle at 20% 30%, #0f0c1e 0%, #05030a 50%, #000000 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Forzar todos los textos a blanco */
+        body.css,
+        body.css * {
+            color: #FFFFFF !important;
+        }
+
+        /* Excepciones para enlaces visitados (mantener blanco) */
+        body.css a:visited,
+        body.css a:link {
+            color: #FFFFFF !important;
+        }
+
+        /* Ajustar títulos */
+        header h1 {
+            color: #FFFFFF !important;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            color: rgba(255, 255, 255, 0.85) !important;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        section h3 {
+            color: #FFFFFF !important;
+            margin: 1.5rem 0 0.8rem 0;
+            font-size: 1.3rem;
+            border-left: 4px solid #8A2BE2;
+            padding-left: 12px;
+        }
+
+        /* Lista de selectores */
+        section ul {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        
+        section ul li {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.6rem 1.2rem;
+            margin-top: 0.5rem;
+            border-radius: 40px;
+            color: #FFFFFF !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        section ul li:hover {
+            transform: translateY(-2px);
+            background: rgba(138, 43, 226, 0.4);
+            border-color: #8A2BE2;
+        }
+
+        /* first-of-type */
+        section ul li:first-of-type {
+            background: rgba(0, 255, 0, 0.3);
+            border: 2px solid rgba(0, 255, 0, 0.5);
+        }
+        
+        /* last-of-type */
+        section ul li:last-of-type {
+            background: rgba(0, 150, 255, 0.3);
+            border: 2px solid rgba(0, 150, 255, 0.5);
+        }
+        
+        /* nth-of-type(3) */
+        section ul li:nth-of-type(3) {
+            background: rgba(255, 100, 0, 0.3);
+            border: 2px solid rgba(255, 100, 0, 0.5);
+        }
+
+        /* Tablero de ajedrez */
+        div.chess {
+            display: flex;
+            flex-direction: column;
+            margin-block: 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        div.chess div.f {
+            display: flex;
+        }
+        
+        div.chess div.f div.c {
+            background-color: #f0f0f0;
+            height: 35px;
+            width: 35px;
+            transition: all 0.2s ease;
+        }
+        
+        /* Patrón de ajedrez */
+        div.chess div.f:nth-child(odd) div.c:nth-child(2n+1) {
+            background-color: #333;
+        }
+        
+        div.chess div.f:nth-child(even) div.c:nth-child(2n) {
+            background-color: #333;
+        }
+
+        /* Hover en celdas */
+        div.chess div.f div.c:hover {
+            background-color: #8A2BE2 !important;
+            transform: scale(0.95);
+        }
+
+        /* Target section */
+        div.target {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            display: flex;
+            margin-block: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            width: 280px;
+            padding: 1rem;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        div.target div.menu-fruits {
+            display: flex;
+            gap: 8px;
+            flex-direction: column;
+        }
+        
+        div.target div.menu-fruits a:is(:link, :visited) {
+            background: rgba(138, 43, 226, 0.3);
+            padding: 10px 16px;
+            color: #FFFFFF !important;
+            text-decoration: none;
+            border-radius: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(138, 43, 226, 0.5);
+        }
+        
+        div.target div.menu-fruits a:hover {
+            background: rgba(138, 43, 226, 0.6);
+            transform: translateX(5px);
+        }
+        
+        div.emojis {
+            padding: 10px;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        div.emojis div.fruit {
+            display: none;
+            font-size: 3rem;
+        }
+        
+        div.emojis div#apple:target,
+        div.emojis div#pear:target,
+        div.emojis div#orange:target {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* ::selection con colores distintos pero texto siempre legible */
+        p.yellow::selection {
+            background-color: #ffcc00;
+            color: #000000 !important;
+        }
+        
+        p.blue::selection {
+            background-color: #0099ff;
+            color: #FFFFFF !important;
+        }
+        
+        p.red::selection {
+            background-color: #ff3333;
+            color: #FFFFFF !important;
+        }
+
+        /* Párrafos de selección */
+        section p {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            margin: 0.8rem 0;
+            color: #FFFFFF !important;
+            line-height: 1.5;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        section p:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(138, 43, 226, 0.4);
+        }
+
+        /* Botón de navegación SVG */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+        }
+
+        nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(138, 43, 226, 0.25);
+            backdrop-filter: blur(12px);
+            padding: 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(138, 43, 226, 0.5);
+        }
+
+        nav a:hover {
+            background: rgba(138, 43, 226, 0.5);
+            transform: scale(1.1) translateX(-3px);
+        }
+
+        nav a svg {
+            width: 24px;
+            height: 24px;
+            fill: #FFFFFF;
+        }
+
+        /* Ajustes responsive */
+        @media (max-width: 680px) {
+            body.css {
+                padding: 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.6rem;
+            }
+            
+            div.chess div.f div.c {
+                height: 25px;
+                width: 25px;
+            }
+            
+            section ul li {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            div.target {
+                width: 260px;
+            }
+        }
+    </style>
+</head>
+<body class="css"> 
+    <nav>
+        <a href="../03-css/index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#ffffff" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+            </svg>
+        </a>
+    </nav>
+    <main>
+        <header>
+            <h1><strong>25-New selectors</strong></h1> 
+            <p>Used to select the element(s) you want to style.</p>
+        </header>
+        <section>
+            <h3>:first-of-type | :last-of-type | :nth-of-type(n)</h3>
+            <ul>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+                <li>Fourth</li>
+                <li>Last</li>
+            </ul>
+            
+            <h3>:nth-child(n) - Tablero de ajedrez</h3>
+            <div class="chess">
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+                <div class="f">
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                    <div class="c"></div><div class="c"></div><div class="c"></div><div class="c"></div>
+                </div>
+            </div>
+            
+            <h3>:target - Selector de objetivo</h3>
+            <div class="target">
+                <div class="menu-fruits">
+                    <a href="#apple">🍎 Apple</a>
+                    <a href="#pear">🍐 Pear</a>
+                    <a href="#orange">🍊 Orange</a>
+                </div>
+                <div class="emojis">
+                    <div id="apple" class="fruit">🍎</div>
+                    <div id="pear" class="fruit">🍐</div>
+                    <div id="orange" class="fruit">🍊</div>
+                </div>
+            </div>
+            
+            <h3>::selection - Colores de selección</h3>
+            <p class="yellow">
+                ✨ Selecciona este texto - verás fondo amarillo ✨
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, a?
+            </p>
+            <p class="blue">
+                💙 Selecciona este texto - verás fondo azul 💙
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, a?
+            </p>
+            <p class="red">
+                ❤️ Selecciona este texto - verás fondo rojo ❤️
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, a?
+            </p>
+        </section>
+    </main>
+</body>
+</html>

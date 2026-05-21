@@ -1,83 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
-
-
- 
 :root {
-    --morado: #6C5CE7;
-    --morado-oscuro: #4B3FCF;
-    --gris-oscuro: #0F0F1A;
+    --morado: #8A2BE2;
+    --morado-fluido: #9b4dff;
+    --morado-glow: #b77eff;
+    --morado-oscuro: #5A1BB0;
+    --gris-oscuro: #0A0A14;
     --gris-medio: #1E1E2F;
-    --gris-claro: #A0A0B5;
+    --gris-vidrio: rgba(26, 26, 46, 0.65);
+    --gris-claro: #C7BFFF;
     --blanco: #FFFFFF;
+    --blanco-puro: #FFFFFF;
 }
 
-h1 {
-    color: var(--blanco);
-}
-
-h4 {
-    color: #C7BFFF; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-background-color: #000000;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+    background: radial-gradient(circle at 25% 20%, #0f0c1e 0%, #05030a 50%, #000000 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--blanco-puro);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
 }
 
+/* Textura premium de ruido sutil */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    z-index: 0;
+}
+
+/* Capa de glow morado */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at 70% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 60%);
+    z-index: 0;
+}
+
+/* ========== TÍTULOS - BLANCO PURO ========== */
+h1 {
+    color: var(--blanco-puro);
+    font-family: "Plus Jakarta Sans", "SF Pro Display", system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+h4 {
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ========== BOTÓN DE NAVEGACIÓN (HOME) ========== */
 a {
     position: fixed;
-    left: 20px;
-    top: 20px;
-    border: 2px solid var(--morado);
+    left: 24px;
+    top: 24px;
+    background: rgba(138, 43, 226, 0.25);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(138, 43, 226, 0.5);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    width: 50px;
-    opacity: .7;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 52px;
+    width: 52px;
+    opacity: 0.9;
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 a:hover {
-    transform: scale(1.2);
+    transform: scale(1.1) translateX(-3px);
     opacity: 1;
+    background: rgba(138, 43, 226, 0.45);
+    border-color: var(--morado-fluido);
+    box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
 }
 
-.cuadro {
-    background: var(--gris-medio);
-    padding: 25px;
-    border-radius: 15px;
-    width: 435px;
-    margin: 30px auto;
-    color: var(--blanco);
-    border: 2px solid var(--morado);
-    box-shadow: 0 0 10px rgba(108, 92, 231, 0.5),
-                0 0 20px rgba(108, 92, 231, 0.3);
-    font-family: "Inter", sans-serif;
+/* SVG dentro del botón */
+a svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--blanco-puro);
+    transition: transform 0.2s ease;
 }
 
-.cuadro xmp {
-    background-color: #111;
-    border: 1px solid var(--morado);
-    padding: 8px;
-    border-radius: 10px;
-    color: #C7BFFF;
-    display: block;
+a:hover svg {
+    transform: translateX(-2px);
 }
 
-.cuadro h2 {
-    border-bottom: 2px solid var(--morado);
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-    color: var(--blanco);
-}
-
+/* ========== CONTENEDOR PRINCIPAL ========== */
 main {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
 }
 
+/* ========== CUADROS / CARDS (Liquid Glass) ========== */
+.cuadro {
+    background: rgba(18, 16, 34, 0.6);
+    backdrop-filter: blur(16px);
+    padding: 1.8rem;
+    border-radius: 32px;
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    color: var(--blanco-puro);
+    border: 0.5px solid rgba(138, 43, 226, 0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(138, 43, 226, 0.2);
+    transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+    font-family: "Inter", sans-serif;
+    text-align: left;
+}
+
+.cuadro:hover {
+    transform: translateY(-4px);
+    border-color: rgba(138, 43, 226, 0.7);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(138, 43, 226, 0.5);
+}
+
+/* Títulos dentro de los cuadros */
+.cuadro h2 {
+    border-bottom: 2px solid var(--morado-glow);
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+    color: var(--blanco-puro);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.3px;
+}
+
+/* Código / xmp dentro de cuadros */
+.cuadro xmp {
+    background: rgba(8, 6, 16, 0.8);
+    border: 1px solid rgba(138, 43, 226, 0.4);
+    padding: 12px 14px;
+    border-radius: 16px;
+    color: var(--gris-claro);
+    display: block;
+    font-family: "Space Grotesk", "Fira Code", monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+    transition: all 0.2s ease;
+}
+
+.cuadro xmp:hover {
+    border-color: var(--morado-fluido);
+    background: rgba(8, 6, 16, 0.95);
+}
+
+/* Texto adicional dentro de cuadros */
+.cuadro p,
+.cuadro span,
+.cuadro div:not(.cuadro) {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Forzar todo el texto dentro de .cuadro a ser blanco/legible */
+.cuadro * {
+    color: inherit;
+}
+
+/* Ajuste específico para etiquetas code o texto de ejemplo */
+.cuadro code {
+    background: rgba(138, 43, 226, 0.2);
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--morado-glow);
+}
+
+/* ========== LAYOUT DE CUADROS EN REJILLA ========== */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Si hay múltiples cuadros, se organizan bien */
 main .cuadro {
     text-align: left;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 680px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-top: 3rem;
+    }
+
+    h4 {
+        font-size: 0.85rem;
+    }
+
+    .cuadro {
+        padding: 1.2rem;
+        border-radius: 24px;
+        max-width: 95%;
+    }
+
+    .cuadro h2 {
+        font-size: 1.2rem;
+    }
+
+    .cuadro xmp {
+        font-size: 0.7rem;
+        padding: 10px;
+    }
+
+    a {
+        left: 16px;
+        top: 16px;
+        height: 44px;
+        width: 44px;
+    }
+
+    a svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cuadro {
+        padding: 1rem;
+    }
+
+    .cuadro xmp {
+        font-size: 0.65rem;
+    }
+}
+
+/* ========== ANIMACIÓN DE ENTRADA ========== */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cuadro {
+    animation: fadeSlideUp 0.4s ease-out backwards;
+}
+
+.cuadro:nth-child(1) { animation-delay: 0.05s; }
+.cuadro:nth-child(2) { animation-delay: 0.1s; }
+.cuadro:nth-child(3) { animation-delay: 0.15s; }
+.cuadro:nth-child(4) { animation-delay: 0.2s; }
+
+/* Scrollbar moderno */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gris-oscuro);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--morado);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--morado-fluido);
 }
